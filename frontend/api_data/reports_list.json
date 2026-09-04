@@ -1,0 +1,53 @@
+{
+  "count": 2,
+  "reports": [
+    {
+      "id": "REP-2026-001",
+      "timestamp": 1788503396,
+      "reporter_name": "Tashi Bhutia (Field Officer, BRO)",
+      "reporter_role": "BRO Project Swastik Patrol",
+      "state": "Sikkim",
+      "location_name": "NH-10 Km 29.4 near Likuvir",
+      "coordinates": [
+        27.0535,
+        88.4815
+      ],
+      "crack_type": "Tension Crack (Crown)",
+      "crack_width_mm": 180.0,
+      "crack_depth_cm": 95.0,
+      "crack_length_m": 45.0,
+      "road_subsidence_cm": 35.0,
+      "damage_score": 88.4,
+      "severity": "CRITICAL_FAILURE",
+      "photo_url": "/static/img/sample_crack1.jpg",
+      "audio_note_url": null,
+      "triage_status": "ACTION_REQUIRED",
+      "assigned_team": "SDRF Pakyong & BRO Taskforce 10",
+      "notes": "Crown tension crack actively widening by ~5mm/hr. Road shoulder has subsided by 35cm. Immediate vehicular closure recommended."
+    },
+    {
+      "id": "REP-2026-002",
+      "timestamp": 1788499796,
+      "reporter_name": "Wanbiang Marbaniang (Citizen Volunteer)",
+      "reporter_role": "Citizen Field Observer",
+      "state": "Meghalaya",
+      "location_name": "Sonapur Tunnel North Portal",
+      "coordinates": [
+        25.1255,
+        92.3625
+      ],
+      "crack_type": "Transverse Scarp / Shear Crack",
+      "crack_width_mm": 75.0,
+      "crack_depth_cm": 40.0,
+      "crack_length_m": 22.0,
+      "road_subsidence_cm": 15.0,
+      "damage_score": 58.2,
+      "severity": "HIGH",
+      "photo_url": "/static/img/sample_crack2.jpg",
+      "audio_note_url": null,
+      "triage_status": "UNDER_REVIEW",
+      "assigned_team": "NHAI Road Maintenance Gang",
+      "notes": "Muddy runoff accompanied by continuous rock chips falling onto carriage-way. Water seepage emerging from slope toe."
+    }
+  ]
+}

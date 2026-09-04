@@ -1,0 +1,215 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "id": "HW-NH10",
+      "properties": {
+        "name": "NH-10 (Siliguri - Sevoke - Rangpo - Gangtok)",
+        "state": "Sikkim & West Bengal",
+        "status": "BLOCKED",
+        "blockage_reason": "Massive debris flow at 29th Mile & Birik Dara; active rockfall",
+        "est_clearance_hours": 18,
+        "clearance_agency": "BRO Project Swastik",
+        "detour_route": "Via Gorubathan - Lava - Reshi - Rhenock - Rongpo (Light Vehicles Only)",
+        "risk_rating": "CRITICAL"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            88.435,
+            26.882
+          ],
+          [
+            88.472,
+            26.962
+          ],
+          [
+            88.482,
+            27.0521
+          ],
+          [
+            88.532,
+            27.175
+          ],
+          [
+            88.6138,
+            27.3314
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "HW-NH6",
+      "properties": {
+        "name": "NH-6 (Shillong - Jowai - Sonapur - Silchar)",
+        "state": "Meghalaya & Assam",
+        "status": "RESTRICTED",
+        "blockage_reason": "Single-lane traffic movement at Sonapur Tunnel mouth due to slush & mudflow",
+        "est_clearance_hours": 6,
+        "clearance_agency": "NHAI & Meghalaya PWD",
+        "detour_route": "Heavy trucks regulated at Khliehriat; alternate via Umrangso-Halflong",
+        "risk_rating": "HIGH"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            91.8933,
+            25.5788
+          ],
+          [
+            92.203,
+            25.448
+          ],
+          [
+            92.361,
+            25.1245
+          ],
+          [
+            92.7789,
+            24.8333
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "HW-NH29",
+      "properties": {
+        "name": "NH-29 (Dimapur - Chumukedima - Kohima - Mao)",
+        "state": "Nagaland & Manipur",
+        "status": "RESTRICTED",
+        "blockage_reason": "Subsidence near Old KMC Dumping Ground & Phesama crack expansion",
+        "est_clearance_hours": 8,
+        "clearance_agency": "BRO Project Sewak",
+        "detour_route": "Peducha-Tsiesema 10-Mile Bypass for passenger cars",
+        "risk_rating": "MODERATE"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            93.727,
+            25.908
+          ],
+          [
+            93.812,
+            25.815
+          ],
+          [
+            94.0845,
+            25.642
+          ],
+          [
+            94.135,
+            25.512
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "HW-NH27",
+      "properties": {
+        "name": "NH-27 / East-West Corridor (Guwahati - Nagaon - Lumding - Haflong)",
+        "state": "Assam",
+        "status": "CLEAR",
+        "blockage_reason": "All lanes operational with precautionary patrol at Jatinga Lampu",
+        "est_clearance_hours": 0,
+        "clearance_agency": "NHAI Regional Office Guwahati",
+        "detour_route": "Standard Corridor",
+        "risk_rating": "LOW"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            91.7362,
+            26.1445
+          ],
+          [
+            92.684,
+            26.345
+          ],
+          [
+            93.172,
+            25.752
+          ],
+          [
+            93.032,
+            25.184
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "HW-NH13",
+      "properties": {
+        "name": "NH-13 Trans-Arunachal Highway (Bhalukpong - Tenga - Bomdila - Tawang)",
+        "state": "Arunachal Pradesh",
+        "status": "RESTRICTED",
+        "blockage_reason": "Rockfall near Munna Camp and Sela Tunnel approach road",
+        "est_clearance_hours": 12,
+        "clearance_agency": "BRO Project Vartak",
+        "detour_route": "Via Rupa-Kalaktang Axis",
+        "risk_rating": "HIGH"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            92.645,
+            27.014
+          ],
+          [
+            92.421,
+            27.264
+          ],
+          [
+            92.105,
+            27.502
+          ],
+          [
+            91.8594,
+            27.5861
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "HW-NH37",
+      "properties": {
+        "name": "NH-37 (Imphal - Noney - Tupul - Jiribam)",
+        "state": "Manipur",
+        "status": "RESTRICTED",
+        "blockage_reason": "Debris clearance near Awangkhul and Noney Bridge",
+        "est_clearance_hours": 10,
+        "clearance_agency": "NHIDCL & Manipur PWD",
+        "detour_route": "Old Cachar Road (Restricted 4x4 Only)",
+        "risk_rating": "HIGH"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            93.9368,
+            24.817
+          ],
+          [
+            93.682,
+            24.789
+          ],
+          [
+            93.125,
+            24.801
+          ]
+        ]
+      }
+    }
+  ]
+}

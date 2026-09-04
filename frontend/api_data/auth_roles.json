@@ -1,0 +1,22 @@
+{
+  "roles": [
+    {
+      "role_key": "ADMIN",
+      "title": "DDMA / SDMA Administrator",
+      "description": "State & District Disaster Management Command (Level-1 Full)",
+      "sample_badge": "ADM-NER-01"
+    },
+    {
+      "role_key": "FIELD_OFFICER",
+      "title": "Field Officer (BRO / SDRF / GSI)",
+      "description": "Lifeline Highway Patrol & Rapid Response Squad (Level-2 Ops)",
+      "sample_badge": "BRO-SW-104"
+    },
+    {
+      "role_key": "GOVERNMENT_OFFICIAL",
+      "title": "Government Official / District Magistrate",
+      "description": "Executive Administration, SEOC & Evacuation Command (Level-1 Exec)",
+      "sample_badge": "IAS-DC-502"
+    }
+  ]
+}

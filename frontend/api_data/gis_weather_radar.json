@@ -1,0 +1,240 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "id": "RAD-CELL-01",
+      "properties": {
+        "name": "Meghalaya South Escarpment Convective Deluge",
+        "state": "Meghalaya / Assam border",
+        "intensity": "SEVERE_CLOUDBURST",
+        "alert_icon": "CLOUDBURST",
+        "warning_level": "RED",
+        "center_coordinates": [
+          25.25,
+          92.0
+        ],
+        "reflectivity_dbz": 55.0,
+        "rainfall_rate_mm_hr": 42.0,
+        "echo_top_km": 14.5,
+        "cell_movement": "North at 18 km/h",
+        "color_hex": "#ef4444"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              91.5,
+              25.1
+            ],
+            [
+              91.5,
+              25.4
+            ],
+            [
+              92.55,
+              25.45
+            ],
+            [
+              92.55,
+              25.05
+            ],
+            [
+              91.5,
+              25.1
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "RAD-CELL-02",
+      "properties": {
+        "name": "Teesta Basin - Sevoke Orographic Storm Band",
+        "state": "Sikkim / West Bengal Border",
+        "intensity": "HIGH_PRECIPITATION",
+        "alert_icon": "LANDSLIDE",
+        "warning_level": "RED",
+        "center_coordinates": [
+          27.12,
+          88.52
+        ],
+        "reflectivity_dbz": 51.5,
+        "rainfall_rate_mm_hr": 28.5,
+        "echo_top_km": 12.0,
+        "cell_movement": "North-East at 14 km/h",
+        "color_hex": "#ea580c"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              88.3,
+              26.85
+            ],
+            [
+              88.35,
+              27.45
+            ],
+            [
+              88.75,
+              27.4
+            ],
+            [
+              88.7,
+              26.8
+            ],
+            [
+              88.3,
+              26.85
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "RAD-CELL-03",
+      "properties": {
+        "name": "Barail Range & Dima Hasao Convective Core",
+        "state": "Assam / Meghalaya",
+        "intensity": "SEVERE_CONVECTIVE",
+        "alert_icon": "CLOUDBURST",
+        "warning_level": "RED",
+        "center_coordinates": [
+          25.22,
+          93.08
+        ],
+        "reflectivity_dbz": 53.0,
+        "rainfall_rate_mm_hr": 35.0,
+        "echo_top_km": 13.5,
+        "cell_movement": "North-North-East at 15 km/h",
+        "color_hex": "#ef4444"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              92.8,
+              25.0
+            ],
+            [
+              92.85,
+              25.45
+            ],
+            [
+              93.35,
+              25.4
+            ],
+            [
+              93.3,
+              24.95
+            ],
+            [
+              92.8,
+              25.0
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "RAD-CELL-04",
+      "properties": {
+        "name": "Nagaland-Manipur Ridge Rain Shield",
+        "state": "Nagaland / Manipur",
+        "intensity": "MODERATE_TO_HEAVY",
+        "alert_icon": "THUNDERSTORM",
+        "warning_level": "ORANGE",
+        "center_coordinates": [
+          25.2,
+          94.08
+        ],
+        "reflectivity_dbz": 46.0,
+        "rainfall_rate_mm_hr": 18.0,
+        "echo_top_km": 10.5,
+        "cell_movement": "North-East at 20 km/h",
+        "color_hex": "#2563eb"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              93.7,
+              24.6
+            ],
+            [
+              93.85,
+              25.85
+            ],
+            [
+              94.45,
+              25.8
+            ],
+            [
+              94.3,
+              24.55
+            ],
+            [
+              93.7,
+              24.6
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "RAD-CELL-05",
+      "properties": {
+        "name": "Siang Valley & Pasighat Frontal Surge",
+        "state": "Arunachal Pradesh / Upper Assam",
+        "intensity": "HIGH_PRECIPITATION",
+        "alert_icon": "THUNDERSTORM",
+        "warning_level": "ORANGE",
+        "center_coordinates": [
+          28.0,
+          95.25
+        ],
+        "reflectivity_dbz": 49.5,
+        "rainfall_rate_mm_hr": 24.0,
+        "echo_top_km": 11.5,
+        "cell_movement": "East at 16 km/h",
+        "color_hex": "#ea580c"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              94.8,
+              27.75
+            ],
+            [
+              94.9,
+              28.3
+            ],
+            [
+              95.7,
+              28.25
+            ],
+            [
+              95.6,
+              27.7
+            ],
+            [
+              94.8,
+              27.75
+            ]
+          ]
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,44 @@
+{
+  "count": 2,
+  "active_distress_count": 2,
+  "signals": [
+    {
+      "id": "SOS-2026-001",
+      "timestamp": 1788505196,
+      "user_name": "Arjun Chhetri (Stranded Commuter)",
+      "phone": "+91-98320-XXXXX",
+      "state": "Sikkim",
+      "corridor": "NH-10 Sevoke-Teesta Axis (29th Mile)",
+      "coordinates": [
+        27.0521,
+        88.482
+      ],
+      "situation": "Vehicle stuck in active mudflow. 4 passengers inside including an elderly patient.",
+      "status": "DISTRESS_ACTIVE",
+      "severity": "CRITICAL",
+      "assigned_unit": "SDRF Pakyong Unit 2",
+      "eta_minutes": 15,
+      "notified_ddma": true,
+      "last_ping": 1788506876
+    },
+    {
+      "id": "SOS-2026-002",
+      "timestamp": 1788503796,
+      "user_name": "Lalthanmawia (Truck Driver)",
+      "phone": "+91-94361-XXXXX",
+      "state": "Meghalaya",
+      "corridor": "NH-6 Sonapur Tunnel Approach",
+      "coordinates": [
+        25.1245,
+        92.361
+      ],
+      "situation": "Boulder collapsed on highway blocking carriage-way. Debris continuously sliding.",
+      "status": "ACKNOWLEDGED_EN_ROUTE",
+      "severity": "HIGH",
+      "assigned_unit": "NHAI Quick Response Patrol & BRO Crane",
+      "eta_minutes": 25,
+      "notified_ddma": true,
+      "last_ping": 1788506696
+    }
+  ]
+}

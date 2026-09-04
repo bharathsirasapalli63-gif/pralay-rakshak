@@ -1,0 +1,230 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "id": "HAZ-SK-01",
+      "properties": {
+        "name": "Sevoke-Rongpo Active Slide Corridor",
+        "state": "Sikkim / WB",
+        "risk_level": "RED",
+        "lhi_score": 88.5,
+        "trigger_cause": "Intense Monsoon Rainfall & Tectonic Shear in Daling Schists",
+        "vulnerable_villages": [
+          "29th Mile",
+          "Birik Dara",
+          "Sethijhora",
+          "Rambhi Bazar"
+        ],
+        "population_at_risk": 4200
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              88.46,
+              27.02
+            ],
+            [
+              88.47,
+              27.08
+            ],
+            [
+              88.51,
+              27.09
+            ],
+            [
+              88.5,
+              27.03
+            ],
+            [
+              88.46,
+              27.02
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "HAZ-ML-02",
+      "properties": {
+        "name": "Sonapur-Ratacherra Colluvial Slump Zone",
+        "state": "Meghalaya",
+        "risk_level": "ORANGE",
+        "lhi_score": 76.2,
+        "trigger_cause": "Heavy Orographic Precipitation & Sandstone Dip Slope Shear",
+        "vulnerable_villages": [
+          "Sonapur",
+          "Khasimara",
+          "Ratacherra",
+          "Dona Umbluh"
+        ],
+        "population_at_risk": 2800
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              92.34,
+              25.1
+            ],
+            [
+              92.35,
+              25.15
+            ],
+            [
+              92.39,
+              25.16
+            ],
+            [
+              92.38,
+              25.11
+            ],
+            [
+              92.34,
+              25.1
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "HAZ-NL-03",
+      "properties": {
+        "name": "Kohima South Creep & Subsidence Belt",
+        "state": "Nagaland",
+        "risk_level": "YELLOW",
+        "lhi_score": 58.4,
+        "trigger_cause": "Disang Shale Weathering & Anthropogenic Road Cutting",
+        "vulnerable_villages": [
+          "Phesama",
+          "Kigwema",
+          "Jakhama",
+          "Viswema"
+        ],
+        "population_at_risk": 6500
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              94.06,
+              25.61
+            ],
+            [
+              94.07,
+              25.66
+            ],
+            [
+              94.11,
+              25.67
+            ],
+            [
+              94.1,
+              25.62
+            ],
+            [
+              94.06,
+              25.61
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "HAZ-AS-04",
+      "properties": {
+        "name": "Jatinga-Mahur Railway Debris Sinks",
+        "state": "Assam",
+        "risk_level": "YELLOW",
+        "lhi_score": 52.0,
+        "trigger_cause": "Saturated Colluvium Overburden on Steep Terrace Slopes",
+        "vulnerable_villages": [
+          "Jatinga",
+          "New Haflong",
+          "Lampu",
+          "Bagetar"
+        ],
+        "population_at_risk": 3100
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              93.01,
+              25.16
+            ],
+            [
+              93.02,
+              25.21
+            ],
+            [
+              93.06,
+              25.22
+            ],
+            [
+              93.05,
+              25.17
+            ],
+            [
+              93.01,
+              25.16
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "HAZ-AR-05",
+      "properties": {
+        "name": "Bhalukpong-Tenga Shear Zone",
+        "state": "Arunachal Pradesh",
+        "risk_level": "ORANGE",
+        "lhi_score": 74.0,
+        "trigger_cause": "Main Boundary Thrust (MBT) Proximity & Flash Deluges",
+        "vulnerable_villages": [
+          "Sessa",
+          "Tipi",
+          "Munna Camp",
+          "Nag Mandir"
+        ],
+        "population_at_risk": 1900
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              92.58,
+              27.05
+            ],
+            [
+              92.59,
+              27.12
+            ],
+            [
+              92.65,
+              27.14
+            ],
+            [
+              92.64,
+              27.07
+            ],
+            [
+              92.58,
+              27.05
+            ]
+          ]
+        ]
+      }
+    }
+  ]
+}
