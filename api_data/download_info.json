@@ -1,0 +1,23 @@
+{
+  "app_name": "PRALAY-RAKSHAK",
+  "title": "PRALAY-RAKSHAK: AI Landslide Early Warning & Field Response Platform",
+  "package_name": "in.gov.ndma.pralayrakshak.ner",
+  "version": "2.0.0",
+  "version_code": 200,
+  "release_channel": "Official Production Release",
+  "filename": "PRALAY-RAKSHAK-Landslide-NER-v2.0.0.apk",
+  "size_kb": 61.7,
+  "size_mb": 0.06,
+  "min_android_version": "Android 7.0 (Nougat) or higher",
+  "target_sdk": "Android 14 / 15 (API 34)",
+  "download_url": "/api/download/apk",
+  "direct_file_url": "/static/downloads/PRALAY-RAKSHAK-Landslide-NER-v2.0.0.apk",
+  "features": [
+    "Real-Time GIS Doppler Radar & Weather Overlays",
+    "IoT Sensor Telemetry & Geotechnical Factor of Safety Calculator",
+    "Field Incident & Ground Crack Reporting with Offline Queue Sync",
+    "DDMA Role-Based Security Command Dashboard",
+    "1-Tap Emergency SOS Beacon with GPS Coordinates",
+    "Multilingual Disaster Siren Synthesizer in 8 Regional Languages"
+  ]
+}

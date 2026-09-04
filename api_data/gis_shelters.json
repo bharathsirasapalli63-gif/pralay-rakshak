@@ -1,0 +1,197 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "id": "SHL-SK-01",
+      "properties": {
+        "name": "Rangpo Multi-Purpose Disaster Relief Camp",
+        "state": "Sikkim",
+        "district": "Pakyong",
+        "type": "Designated Evacuation Shelter",
+        "capacity_persons": 850,
+        "current_occupancy": 120,
+        "available_beds": 730,
+        "medical_officer_available": true,
+        "helipad_ready": true,
+        "emergency_contact": "+91-3592-202394",
+        "sdrf_team_stationed": "Sikkim SDRF 2nd Platoon"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          88.529,
+          27.179
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "SHL-SK-02",
+      "properties": {
+        "name": "Gangtok Indoor Stadium Emergency Center",
+        "state": "Sikkim",
+        "district": "East Sikkim",
+        "type": "Primary City Shelter",
+        "capacity_persons": 1500,
+        "current_occupancy": 45,
+        "available_beds": 1455,
+        "medical_officer_available": true,
+        "helipad_ready": true,
+        "emergency_contact": "+91-3592-202111",
+        "sdrf_team_stationed": "NDRF 2nd Bn Unit Gangtok"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          88.611,
+          27.329
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "SHL-ML-01",
+      "properties": {
+        "name": "Khliehriat Government College Relief Hub",
+        "state": "Meghalaya",
+        "district": "East Jaintia Hills",
+        "type": "District Emergency Shelter",
+        "capacity_persons": 600,
+        "current_occupancy": 85,
+        "available_beds": 515,
+        "medical_officer_available": true,
+        "helipad_ready": false,
+        "emergency_contact": "+91-3655-220022",
+        "sdrf_team_stationed": "Meghalaya SDRF Team Alpha"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          92.365,
+          25.358
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "SHL-NL-01",
+      "properties": {
+        "name": "Kohima High School Ground Relief Center",
+        "state": "Nagaland",
+        "district": "Kohima",
+        "type": "Community Evacuation Center",
+        "capacity_persons": 1200,
+        "current_occupancy": 30,
+        "available_beds": 1170,
+        "medical_officer_available": true,
+        "helipad_ready": true,
+        "emergency_contact": "+91-370-2290055",
+        "sdrf_team_stationed": "Nagaland SDRF Bn 1"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          94.108,
+          25.674
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "SHL-AS-01",
+      "properties": {
+        "name": "Haflong Government Boys Higher Secondary Relief Camp",
+        "state": "Assam",
+        "district": "Dima Hasao",
+        "type": "District Disaster Shelter",
+        "capacity_persons": 900,
+        "current_occupancy": 65,
+        "available_beds": 835,
+        "medical_officer_available": true,
+        "helipad_ready": true,
+        "emergency_contact": "+91-3673-236224",
+        "sdrf_team_stationed": "Assam SDRF Unit Silchar / Haflong"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          93.025,
+          25.178
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "SHL-AR-01",
+      "properties": {
+        "name": "Dirang Sports Complex Emergency Base",
+        "state": "Arunachal Pradesh",
+        "district": "West Kameng",
+        "type": "High Altitude Relief Shelter",
+        "capacity_persons": 750,
+        "current_occupancy": 15,
+        "available_beds": 735,
+        "medical_officer_available": true,
+        "helipad_ready": true,
+        "emergency_contact": "+91-3780-222211",
+        "sdrf_team_stationed": "12th Bn NDRF Itanagar Detachment"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          92.235,
+          27.355
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "SHL-MN-01",
+      "properties": {
+        "name": "Noney District Headquarters Relief Center",
+        "state": "Manipur",
+        "district": "Noney",
+        "type": "Valley Safe Zone",
+        "capacity_persons": 650,
+        "current_occupancy": 40,
+        "available_beds": 610,
+        "medical_officer_available": true,
+        "helipad_ready": true,
+        "emergency_contact": "+91-385-2451000",
+        "sdrf_team_stationed": "Manipur Fire & Emergency Services"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          93.655,
+          24.795
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "SHL-MZ-01",
+      "properties": {
+        "name": "Aizawl Tourist Lodge Shelter & Base",
+        "state": "Mizoram",
+        "district": "Aizawl",
+        "type": "Safe Ridge Evacuation Point",
+        "capacity_persons": 500,
+        "current_occupancy": 10,
+        "available_beds": 490,
+        "medical_officer_available": true,
+        "helipad_ready": false,
+        "emergency_contact": "+91-389-2322238",
+        "sdrf_team_stationed": "Mizoram Disaster Response Force"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          92.718,
+          23.725
+        ]
+      }
+    }
+  ]
+}

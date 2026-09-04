@@ -1,0 +1,1124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="theme-color" content="#1e3a8a">
+  <meta name="description" content="AI-Powered Landslide Early Warning, GIS Monitoring & Field Response Platform for the North Eastern Region of India">
+  <title>PRALAY-RAKSHAK | AI Landslide Early Warning & GIS Platform (NER)</title>
+  
+  <!-- Manifest for PWA -->
+  <link rel="manifest" href="manifest.json">
+  
+  <!-- Leaflet GIS CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin="" />
+  
+  <!-- Main Stylesheet -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Header Bar -->
+  <header class="app-header">
+    <div class="header-left">
+      <div class="brand-logo">
+        <span class="pulse-radar"></span>
+        <div class="brand-text">
+          <div class="brand-title">PRALAY-RAKSHAK</div>
+          <div class="brand-subtitle" data-i18n="header_sub">AI Landslide Early Warning & GIS (NER)</div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="header-right">
+      <!-- Network / Offline Badge -->
+      <div id="offlineIndicator" class="badge-online">
+        <span class="status-dot"></span>
+        <span id="offlineText">Online</span>
+      </div>
+
+      <!-- Language Selector -->
+      <div class="lang-picker">
+        <select id="langSelect" class="styled-select" aria-label="Select Language">
+          <option value="en">English</option>
+          <option value="hi">हिन्दी (Hindi)</option>
+          <option value="as">অসমীয়া (Assamese)</option>
+          <option value="bn">বাংলা (Bengali)</option>
+          <option value="ne">नेपाली (Nepali)</option>
+          <option value="mzo">Mizo ṭawng</option>
+          <option value="kha">Khasi</option>
+          <option value="mni">মৈতৈলোন্ (Manipuri)</option>
+        </select>
+      </div>
+
+      <!-- Download Android APK Button -->
+      <button id="headerApkBtn" class="btn-apk-header" title="Download Android APK / Sideload App">
+        <span>Download APK</span>
+      </button>
+
+      <!-- Emergency Siren Trigger Button -->
+      <button id="headerSirenBtn" class="btn-siren-header" title="Test Disaster Siren & Audio Broadcast">
+        <span class="siren-label" data-i18n="siren_btn">SIREN ALERT</span>
+      </button>
+
+      <!-- DDMA Official Login Dropdown (Top Right Side) -->
+      <div class="login-dropdown-wrapper" id="loginDropdownWrapper">
+        <button id="headerLoginBtn" class="btn-login-header" aria-haspopup="true" aria-expanded="false" title="DDMA Official Login & Authorization">
+          <span class="login-status-dot" id="headerLoginDot"></span>
+          <span id="headerLoginText">Login</span>
+          <span class="dropdown-arrow-indicator" id="headerLoginArrow">▼</span>
+        </button>
+
+        <!-- Dropdown Menu with 3 Distinct Authorization Categories -->
+        <div id="loginDropdownMenu" class="login-dropdown-menu" role="menu" aria-labelledby="headerLoginBtn">
+          <div class="dropdown-header">
+            <div class="dropdown-header-top">
+              <span class="dropdown-header-badge">DDMA / SDMA</span>
+              <span class="dropdown-header-secure">SECURE GATEWAY</span>
+            </div>
+            <div class="dropdown-header-title">Official Command Login</div>
+            <div class="dropdown-header-subtitle">Select your authorized department category:</div>
+          </div>
+
+          <!-- Active Authenticated Session Banner (Shown when logged in) -->
+          <div id="dropdownActiveSession" class="dropdown-active-session" style="display:none;">
+            <div class="session-badge-row">
+              <span class="session-active-tag">AUTHENTICATED</span>
+              <span class="session-role-tag" id="dropdownActiveRole">ADMIN</span>
+            </div>
+            <div class="session-officer-name" id="dropdownActiveName">Capt. Tashi Bhutia</div>
+            <div class="session-officer-dept" id="dropdownActiveDept">Border Roads Organisation & SDRF</div>
+            <div class="dropdown-session-actions">
+              <button type="button" id="dropdownBtnGoDashboard" class="btn-dropdown-action btn-go-ddma">
+                <span>Open DDMA Dashboard</span>
+              </button>
+              <button type="button" id="dropdownBtnSignOut" class="btn-dropdown-action btn-signout-ddma">
+                <span>Lock & Sign Out</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- 3 Authorization Categories -->
+          <div class="dropdown-categories-list" id="dropdownCategoriesList">
+            <!-- Category 1: Admin -->
+            <div class="dropdown-category-card card-admin" data-category="ADMIN" data-badge="ADM-NER-01" tabindex="0" role="menuitem">
+              <div class="cat-card-header">
+                <div class="cat-card-title">1. District Admin / SDMA</div>
+                <span class="cat-badge badge-admin">LEVEL-1 COMMAND</span>
+              </div>
+              <div class="cat-card-desc">
+                Full disaster command, cloudburst deluge stress simulator, multi-channel siren broadcast dispatch, and emergency threshold overrides.
+              </div>
+              <div class="cat-card-action">
+                <button type="button" class="btn-cat-login" data-action-category="ADMIN" data-action-badge="ADM-NER-01">
+                  <span>Login as Admin</span>
+                </button>
+              </div>
+            </div>
+
+            <!-- Category 2: Field Officer -->
+            <div class="dropdown-category-card card-officer" data-category="FIELD_OFFICER" data-badge="BRO-SW-104" tabindex="0" role="menuitem">
+              <div class="cat-card-header">
+                <div class="cat-card-title">2. Field Officer / Operations</div>
+                <span class="cat-badge badge-officer">LEVEL-2 OPS</span>
+              </div>
+              <div class="cat-card-desc">
+                BRO, SDRF & GSI ground operations, slope fissure triage, drone photo evidence verification, and SDRF rescue dispatch.
+              </div>
+              <div class="cat-card-action">
+                <button type="button" class="btn-cat-login" data-action-category="FIELD_OFFICER" data-action-badge="BRO-SW-104">
+                  <span>Login as Field Officer</span>
+                </button>
+              </div>
+            </div>
+
+            <!-- Category 3: Government Official -->
+            <div class="dropdown-category-card card-govt" data-category="GOVERNMENT_OFFICIAL" data-badge="IAS-DC-502" tabindex="0" role="menuitem">
+              <div class="cat-card-header">
+                <div class="cat-card-title">3. Government Official / Observer</div>
+                <span class="cat-badge badge-govt">EXECUTIVE</span>
+              </div>
+              <div class="cat-card-desc">
+                District Magistrate & Ministry executive oversight, real-time regional telemetry monitoring, inter-agency reporting, and resource deployment.
+              </div>
+              <div class="cat-card-action">
+                <button type="button" class="btn-cat-login" data-action-category="GOVERNMENT_OFFICIAL" data-action-badge="IAS-DC-502">
+                  <span>Login as Govt Official</span>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div class="dropdown-footer">
+            <span>NDMA Disaster Framework • 256-Bit Role-Based Access Control</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Live Warning Ticker -->
+  <div class="ticker-bar">
+    <div class="ticker-badge" data-i18n="live_alerts_badge">LIVE ALERTS</div>
+    <div class="ticker-content" id="alertTickerText">
+      NH-10 (Sevoke-Gangtok) RED ALERT: Active debris flow at 29th Mile • NH-6 (Sonapur Tunnel) ORANGE ALERT: Restricted heavy vehicle movement • Dima Hasao & Tawang monitoring ongoing...
+    </div>
+  </div>
+
+  <!-- NDMA / Sachet Style Regional Weather Status Bar -->
+  <div class="sachet-weather-bar">
+    <div class="sachet-loc-col">
+      <span class="sachet-loc-title">North Eastern Region • NDMA / IMD Network</span>
+      <span class="sachet-loc-sub" id="sachetCurrentLoc">Assam, Meghalaya, Sikkim, Arunachal & Nagaland Warning Corridors</span>
+    </div>
+    <div class="sachet-weather-pill">
+      <span class="sachet-temp" id="sachetTopTemp">26°C</span>
+      <span class="sachet-cond" id="sachetTopCond">Heavy Monsoon Deluge</span>
+      <span class="sachet-radar-tag" id="sachetTopRadar">Doppler: 54.0 dBZ</span>
+    </div>
+  </div>
+
+  <!-- Main App Container (Tabbed View) -->
+  <main class="main-content">
+
+    <!-- TAB 1: GIS LIVE MAP -->
+    <section id="tab-map" class="tab-panel active">
+      <div class="gis-layout">
+        <!-- Map Sidebar Controls -->
+        <aside class="gis-sidebar">
+          <div class="panel-card">
+            <div class="panel-header">
+              <h3 data-i18n="gis_layers_title">GIS Map Layers</h3>
+              <span class="badge-tag">Leaflet Pro</span>
+            </div>
+            
+            <div class="layer-toggle-group">
+              <label class="toggle-item">
+                <input type="checkbox" id="layerHazards" checked>
+                <span class="toggle-slider"></span>
+                <span class="layer-name">
+                  <span class="legend-color legend-red"></span>
+                  <span data-i18n="layer_hazards">Hazard Polygons & Slopes</span>
+                </span>
+              </label>
+              
+              <label class="toggle-item">
+                <input type="checkbox" id="layerSensors" checked>
+                <span class="toggle-slider"></span>
+                <span class="layer-name">
+                  <span class="legend-color legend-cyan"></span>
+                  <span data-i18n="layer_sensors">IoT Sensor Stations (Telemetry)</span>
+                </span>
+              </label>
+
+              <label class="toggle-item">
+                <input type="checkbox" id="layerHighways" checked>
+                <span class="toggle-slider"></span>
+                <span class="layer-name">
+                  <span class="legend-color legend-orange"></span>
+                  <span data-i18n="layer_highways">Highways & Road Blocks</span>
+                </span>
+              </label>
+
+              <label class="toggle-item">
+                <input type="checkbox" id="layerShelters" checked>
+                <span class="toggle-slider"></span>
+                <span class="layer-name">
+                  <span class="legend-color legend-green"></span>
+                  <span data-i18n="layer_shelters">Shelters & SDRF Camps</span>
+                </span>
+              </label>
+
+              <label class="toggle-item">
+                <input type="checkbox" id="layerWeatherRadar" checked>
+                <span class="toggle-slider"></span>
+                <span class="layer-name">
+                  <span class="legend-color legend-radar"></span>
+                  <span data-i18n="layer_weather_radar">Weather: Precipitation Radar & Storm Cells</span>
+                </span>
+              </label>
+
+              <label class="toggle-item">
+                <input type="checkbox" id="layerWeatherStations" checked>
+                <span class="toggle-slider"></span>
+                <span class="layer-name">
+                  <span class="legend-color legend-blue"></span>
+                  <span data-i18n="layer_weather_stations">Weather: IMD Met Stations & Telemetry</span>
+                </span>
+              </label>
+            </div>
+
+            <div class="basemap-selector">
+              <span class="control-label" data-i18n="basemap_label">Basemap Style:</span>
+              <div class="btn-group-segmented">
+                <button class="btn-segment active" data-basemap="light">Light</button>
+                <button class="btn-segment" data-basemap="satellite">Satellite</button>
+                <button class="btn-segment" data-basemap="topo">Topo</button>
+                <button class="btn-segment" data-basemap="dark">Dark</button>
+              </div>
+            </div>
+
+            <!-- Quick Corridor Jump Buttons -->
+            <div class="quick-corridors">
+              <span class="control-label" data-i18n="corridors_label">Focus Vulnerable Corridor:</span>
+              <div class="corridor-chips">
+                <button class="chip-btn" data-center="27.0521,88.4820" data-zoom="13">NH-10 (Sikkim)</button>
+                <button class="chip-btn" data-center="25.1245,92.3610" data-zoom="13">NH-6 (Sonapur)</button>
+                <button class="chip-btn" data-center="25.6420,94.0845" data-zoom="12">NH-29 (Kohima)</button>
+                <button class="chip-btn" data-center="25.1840,93.0320" data-zoom="12">Dima Hasao</button>
+                <button class="chip-btn" data-center="27.5020,92.1050" data-zoom="12">Tawang Sela</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Quick Risk Summary Card -->
+          <div class="panel-card">
+            <div class="panel-header">
+              <h3 data-i18n="risk_summary_title">Regional Hazard Level</h3>
+              <span id="overallRiskPill" class="badge-status-red">HIGH ALERT</span>
+            </div>
+            <div class="risk-stats-grid">
+              <div class="stat-mini-card red">
+                <div class="stat-num" id="statRedCount">1</div>
+                <div class="stat-label">RED (Imminent)</div>
+              </div>
+              <div class="stat-mini-card orange">
+                <div class="stat-num" id="statOrangeCount">3</div>
+                <div class="stat-label">ORANGE (Alert)</div>
+              </div>
+              <div class="stat-mini-card yellow">
+                <div class="stat-num" id="statYellowCount">2</div>
+                <div class="stat-label">YELLOW (Watch)</div>
+              </div>
+              <div class="stat-mini-card green">
+                <div class="stat-num" id="statGreenCount">2</div>
+                <div class="stat-label">GREEN (Normal)</div>
+              </div>
+            </div>
+          </div>
+        </aside>
+
+        <!-- Leaflet Map Container -->
+        <div class="gis-map-wrapper">
+          <div id="gisMap" class="gis-map-container"></div>
+          
+          <!-- Weather Live HUD -->
+          <div class="weather-hud" id="weatherHud">
+            <div class="weather-hud-title" data-i18n="weather_hud_live">Live Doppler Radar & Weather</div>
+            <div class="weather-hud-row">
+              <span>Precipitation Echo:</span>
+              <span class="weather-hud-val" id="hudRadarEcho">54.0 dBZ (Deluge)</span>
+            </div>
+            <div class="weather-hud-row">
+              <span>Max Rain Rate:</span>
+              <span class="weather-hud-val" id="hudMaxRain">34.5 mm/h (Sohra)</span>
+            </div>
+            <div class="weather-hud-row">
+              <span>Active Storm Cells:</span>
+              <span class="weather-hud-val" id="hudStormCells">5 Convective Bands</span>
+            </div>
+          </div>
+
+          <!-- Map Floating Legend -->
+          <div class="map-floating-legend">
+            <div class="legend-title" data-i18n="legend_title">Hazard Severity Index</div>
+            <div class="legend-row"><span class="legend-pill red"></span> Red: LHI &gt; 80 (Imminent)</div>
+            <div class="legend-row"><span class="legend-pill orange"></span> Orange: LHI 60-80 (Alert)</div>
+            <div class="legend-row"><span class="legend-pill yellow"></span> Yellow: LHI 35-60 (Watch)</div>
+            <div class="legend-row"><span class="legend-pill green"></span> Green: LHI &lt; 35 (Stable)</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TAB 2: EARLY WARNING & TELEMETRY -->
+    <section id="tab-warnings" class="tab-panel">
+      <div class="panel-container">
+        <div class="section-title-row">
+          <div>
+            <h2 data-i18n="tab2_title">Real-Time Telemetry & AI Early Warning</h2>
+            <p class="subtitle" data-i18n="tab2_sub">In-situ IoT sensors, dynamic I-D rainfall curves, and infinite slope geotechnical factor of safety.</p>
+          </div>
+          <button id="refreshSensorsBtn" class="btn-secondary"><span data-i18n="refresh_btn">Refresh Telemetry</span></button>
+        </div>
+
+        <!-- Sensor Grid -->
+        <div class="sensors-grid" id="sensorsContainer">
+          <!-- Dynamically populated via JS -->
+        </div>
+
+        <!-- AI Predictive Tools Row -->
+        <div class="grid-2col mt-4">
+          <!-- Interactive AI Susceptibility Predictor -->
+          <div class="panel-card">
+            <div class="panel-header">
+              <h3 data-i18n="ai_predictor_title">Dynamic AI Landslide Predictor</h3>
+              <span class="badge-tag">AHP + I-D Curve</span>
+            </div>
+            <form id="aiPredictForm" class="predictor-form">
+              <div class="form-row">
+                <div class="form-group">
+                  <label data-i18n="lbl_slope">Slope Angle (°):</label>
+                  <input type="number" id="predSlope" class="form-input" value="45.0" step="0.5" min="0" max="90">
+                </div>
+                <div class="form-group">
+                  <label data-i18n="lbl_rain24">24h Rainfall (mm):</label>
+                  <input type="number" id="predRain24" class="form-input" value="125.0" step="1" min="0" max="500">
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="form-group">
+                  <label data-i18n="lbl_vwc">Soil Moisture VWC (%):</label>
+                  <input type="number" id="predVwc" class="form-input" value="42.0" step="0.5" min="5" max="60">
+                </div>
+                <div class="form-group">
+                  <label data-i18n="lbl_pwp">Pore Pressure (kPa):</label>
+                  <input type="number" id="predPwp" class="form-input" value="28.5" step="0.5" min="0" max="100">
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="form-group">
+                  <label data-i18n="lbl_velocity">Tilt Velocity (mm/hr):</label>
+                  <input type="number" id="predVelocity" class="form-input" value="1.65" step="0.05" min="0" max="20">
+                </div>
+                <div class="form-group">
+                  <label data-i18n="lbl_lithology">Lithological Geology:</label>
+                  <select id="predLitho" class="form-input">
+                    <option value="Weathered Schist / Phyllite (Daling Group)">Weathered Schist / Phyllite (Daling Group)</option>
+                    <option value="Shale / Siltstone (Disang / Barail Formation)">Shale / Siltstone (Disang / Barail Formation)</option>
+                    <option value="Colluvial Debris / Overburden">Colluvial Debris / Overburden</option>
+                    <option value="Sandstone / Clay interbedding (Surma Group)">Sandstone / Clay interbedding (Surma Group)</option>
+                    <option value="Granite / Gneiss (Shillong Plateau Core)">Granite / Gneiss (Shillong Plateau Core)</option>
+                  </select>
+                </div>
+              </div>
+              <button type="submit" class="btn-primary w-100 mt-2" data-i18n="btn_calc_risk">Compute Landslide Hazard Index (LHI)</button>
+            </form>
+
+            <div id="aiPredictResult" class="predict-result-box mt-3" style="display: none;">
+              <!-- Dynamic Result -->
+            </div>
+          </div>
+
+          <!-- Geotechnical Factor of Safety (FoS) Calculator -->
+          <div class="panel-card">
+            <div class="panel-header">
+              <h3 data-i18n="fos_title">Geotechnical Factor of Safety (FoS)</h3>
+              <span class="badge-tag">Infinite Slope Model</span>
+            </div>
+            <p class="card-desc" data-i18n="fos_desc">Calculates slope shear strength vs driving shear stress factoring pore water pressure dynamics.</p>
+            
+            <div class="fos-interactive-box">
+              <div class="form-row">
+                <div class="form-group">
+                  <label>Cohesion c' (kPa):</label>
+                  <input type="number" id="fosCohesion" class="form-input" value="14.0" step="0.5">
+                </div>
+                <div class="form-group">
+                  <label>Friction Angle φ' (°):</label>
+                  <input type="number" id="fosPhi" class="form-input" value="28.0" step="0.5">
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="form-group">
+                  <label>Slope Inclination β (°):</label>
+                  <input type="number" id="fosBeta" class="form-input" value="40.0" step="0.5">
+                </div>
+                <div class="form-group">
+                  <label>Soil Depth z (m):</label>
+                  <input type="number" id="fosDepth" class="form-input" value="3.0" step="0.1">
+                </div>
+              </div>
+              <div class="form-group">
+                <label>Pore Water Pressure u (kPa):</label>
+                <input type="range" id="fosPwpSlider" min="0" max="45" value="26" class="slider-styled">
+                <div class="slider-val-display"><span id="fosPwpVal">26</span> kPa</div>
+              </div>
+
+              <div id="fosGaugeDisplay" class="fos-gauge-container">
+                <div class="fos-value-badge" id="fosValBadge">FoS: 0.94</div>
+                <div class="fos-status-text" id="fosStatusText">CRITICAL / ACTIVE SHEAR FAILURE</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TAB 3: FIELD INCIDENT REPORT -->
+    <section id="tab-report" class="tab-panel">
+      <div class="panel-container max-w-800">
+        <div class="section-title-row">
+          <div>
+            <h2 data-i18n="tab3_title">Citizen & Field Official Incident Reporting</h2>
+            <p class="subtitle" data-i18n="tab3_sub">Capture ground fissures, road subsidence, and rockfall with offline IndexedDB queue sync.</p>
+          </div>
+        </div>
+
+        <div class="panel-card">
+          <form id="incidentReportForm" class="report-form">
+            <!-- Reporter Details -->
+            <div class="form-row">
+              <div class="form-group">
+                <label data-i18n="lbl_name">Reporter Name:</label>
+                <input type="text" id="repName" class="form-input" placeholder="e.g. Officer Dorjee / Citizen" required>
+              </div>
+              <div class="form-group">
+                <label data-i18n="lbl_state">State:</label>
+                <select id="repState" class="form-input">
+                  <option value="Sikkim">Sikkim</option>
+                  <option value="Meghalaya">Meghalaya</option>
+                  <option value="Assam">Assam</option>
+                  <option value="Arunachal Pradesh">Arunachal Pradesh</option>
+                  <option value="Nagaland">Nagaland</option>
+                  <option value="Manipur">Manipur</option>
+                  <option value="Mizoram">Mizoram</option>
+                  <option value="Tripura">Tripura</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label data-i18n="lbl_location">Location / Landmark / Highway KM:</label>
+              <input type="text" id="repLocation" class="form-input" placeholder="e.g. NH-10 Km 29.4 near Likuvir / Sonapur Tunnel" required>
+            </div>
+
+            <!-- GPS Coordinates with Auto-Locate -->
+            <div class="form-row">
+              <div class="form-group">
+                <label>Latitude:</label>
+                <input type="number" id="repLat" class="form-input" step="0.0001" value="27.0535">
+              </div>
+              <div class="form-group">
+                <label>Longitude:</label>
+                <input type="number" id="repLng" class="form-input" step="0.0001" value="88.4815">
+              </div>
+              <div class="form-group auto-btn-group">
+                <label>&nbsp;</label>
+                <button type="button" id="btnGetGps" class="btn-secondary w-100"><span data-i18n="btn_gps">Grab GPS</span></button>
+              </div>
+            </div>
+
+            <!-- Morphological Crack Parameters -->
+            <div class="panel-sub-section">
+              <h4 data-i18n="fissure_heading">Fissure & Ground Displacement Parameters</h4>
+              
+              <div class="form-group">
+                <label data-i18n="lbl_crack_type">Crack Morphology Type:</label>
+                <select id="repCrackType" class="form-input">
+                  <option value="Tension Crack (Crown)">Tension Crack (Crown - Top of Slope)</option>
+                  <option value="Transverse Scarp / Shear Crack">Transverse Scarp / Shear Crack</option>
+                  <option value="En-Echelon Fissure Field">En-Echelon Fissure Field</option>
+                  <option value="Road Subsidence Step">Road Subsidence Step / Shoulder Drop</option>
+                  <option value="Toe Bulge / Soil Heave">Toe Bulge / Soil Heave (Bottom of Slope)</option>
+                  <option value="Hairline Surface Fissure">Hairline Surface Fissure</option>
+                </select>
+              </div>
+
+              <div class="form-row">
+                <div class="form-group">
+                  <label data-i18n="lbl_crack_w">Crack Width (mm):</label>
+                  <input type="number" id="repWidth" class="form-input" value="120" step="1" min="1">
+                </div>
+                <div class="form-group">
+                  <label data-i18n="lbl_crack_d">Crack Depth (cm):</label>
+                  <input type="number" id="repDepth" class="form-input" value="65" step="1" min="1">
+                </div>
+              </div>
+
+              <div class="form-row">
+                <div class="form-group">
+                  <label data-i18n="lbl_crack_l">Length Along Slope (m):</label>
+                  <input type="number" id="repLength" class="form-input" value="25" step="1" min="1">
+                </div>
+                <div class="form-group">
+                  <label data-i18n="lbl_subsidence">Road Subsidence (cm):</label>
+                  <input type="number" id="repSubsidence" class="form-input" value="20" step="1" min="0">
+                </div>
+              </div>
+            </div>
+
+            <!-- Photo & Camera Capture -->
+            <div class="form-group mt-3">
+              <label data-i18n="lbl_photo">Capture / Upload Fissure Photo:</label>
+              <input type="file" id="repPhotoInput" accept="image/*" class="file-input-styled">
+              <div id="photoPreviewContainer" class="photo-preview-box" style="display:none;">
+                <img id="photoPreviewImg" src="" alt="Fissure Preview">
+                <div class="photo-badge">AI Evaluated</div>
+              </div>
+            </div>
+
+            <!-- Notes -->
+            <div class="form-group">
+              <label data-i18n="lbl_notes">Observations / Sound of Water / Falling Stones:</label>
+              <textarea id="repNotes" class="form-textarea" rows="3" placeholder="e.g. Muddy springs emerging from slope toe, continuous rock chipping on road..."></textarea>
+            </div>
+
+            <button type="submit" class="btn-primary w-100 btn-large">
+              <span data-i18n="btn_submit_report">Submit Incident Report (Auto Offline Cache)</span>
+            </button>
+          </form>
+        </div>
+
+        <!-- Offline Queue Sync Card -->
+        <div class="panel-card mt-3">
+          <div class="panel-header">
+            <h3 data-i18n="offline_queue_title">Offline Storage Queue (IndexedDB)</h3>
+            <span id="queueBadge" class="badge-tag">0 Reports Queued</span>
+          </div>
+          <p class="card-desc" data-i18n="offline_queue_desc">Reports submitted without internet connectivity are securely stored in your browser and automatically sync when connection returns.</p>
+          <div id="queuedReportsList" class="queued-list">
+            <div class="empty-state" data-i18n="no_queued_reports">No offline reports pending synchronization.</div>
+          </div>
+          <button id="btnManualSync" class="btn-secondary w-100 mt-2">
+            <span data-i18n="btn_sync_now">Force Sync Offline Reports</span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- TAB 4: DDMA DISASTER OPS & STRESS SIMULATOR (RESTRICTED TO ADMIN / FIELD OFFICER / GOVT OFFICIAL) -->
+    <section id="tab-ddma" class="tab-panel">
+      <div class="panel-container">
+        
+        <!-- RESTRICTED ACCESS LOCK SCREEN (Displayed when unauthorized) -->
+        <div id="ddmaSecurityLock" class="ddma-security-gate">
+          <div class="security-card">
+            <div class="security-badge-tag">RESTRICTED OFFICIAL COMMAND CONSOLE</div>
+            <h2 class="security-title">DDMA / SDMA Emergency Command Access</h2>
+            <p class="security-desc">
+              Access to District Disaster Management Command, Rainfall Cloudburst Stress-Testing, Incident Triage, and Multi-Channel Emergency Broadcasts is strictly restricted to <strong>Authorized Administrators, Field Officers, and Government Officials</strong>.
+            </p>
+
+            <form id="ddmaAuthForm" class="security-form">
+              <div class="form-group">
+                <label>Select Authorized Official Role:</label>
+                <select id="authRoleSelect" class="form-input">
+                  <option value="ADMIN">DDMA / SDMA Administrator (Level-1 Full Command)</option>
+                  <option value="FIELD_OFFICER" selected>Field Officer (BRO / SDRF / GSI Operations)</option>
+                  <option value="GOVERNMENT_OFFICIAL">Government Official / District Magistrate (Executive Level)</option>
+                </select>
+              </div>
+
+              <div class="form-row">
+                <div class="form-group">
+                  <label>Officer ID / Badge Number:</label>
+                  <input type="text" id="authOfficerId" class="form-input" value="BRO-SW-104" placeholder="e.g. ADM-NER-01 / BRO-SW-104 / IAS-DC-502" required>
+                </div>
+                <div class="form-group">
+                  <label>Security PIN:</label>
+                  <input type="password" id="authPin" class="form-input" value="1234" placeholder="Enter PIN (Default: 1234)" required>
+                </div>
+              </div>
+
+              <button type="submit" class="btn-primary w-100 btn-large mt-2">
+                <span>Verify Credentials & Unlock DDMA Dashboard</span>
+              </button>
+
+              <!-- Quick 1-Click Role Login Demo Shortcuts -->
+              <div class="quick-auth-shortcuts mt-3">
+                <span class="control-label">Quick Official Demo Clearance:</span>
+                <div class="btn-group-auth">
+                  <button type="button" class="btn-auth-demo" data-demo-role="ADMIN" data-demo-badge="ADM-NER-01">Login as Admin</button>
+                  <button type="button" class="btn-auth-demo" data-demo-role="FIELD_OFFICER" data-demo-badge="BRO-SW-104">Login as Field Officer</button>
+                  <button type="button" class="btn-auth-demo" data-demo-role="GOVERNMENT_OFFICIAL" data-demo-badge="IAS-DC-502">Login as Govt Official</button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+
+        <!-- AUTHORIZED DDMA DASHBOARD VIEW (Displayed when authenticated) -->
+        <div id="ddmaAuthorizedContent" style="display: none;">
+          <!-- Active Officer Clearance Strip -->
+          <div class="officer-clearance-strip mb-3">
+            <div class="clearance-info">
+              <span class="officer-badge-label">OFFICIAL CLEARANCE:</span>
+              <span class="officer-name" id="authActiveOfficerName">Capt. Tashi Bhutia</span>
+              <span class="officer-dept" id="authActiveOfficerDept">Border Roads Organisation & SDRF Quick Response</span>
+              <span class="clearance-level-badge" id="authActiveClearanceBadge">LEVEL-2 FIELD OPERATIONS</span>
+            </div>
+            <button type="button" id="btnLockDdma" class="btn-secondary btn-sm">Lock & Sign Out</button>
+          </div>
+
+          <div class="section-title-row">
+            <div>
+              <h2 data-i18n="tab4_title">DDMA / SDMA Emergency Command Dashboard</h2>
+              <p class="subtitle" data-i18n="tab4_sub">District disaster coordination, rainfall cloudburst stress-testing, and automated warning broadcast.</p>
+            </div>
+          </div>
+
+          <!-- Live SOS Distress Beacon Alerts (Emergency Rescue Dispatch) -->
+          <div class="panel-card sos-ddma-card mb-4" id="ddmaSosSection">
+            <div class="panel-header">
+              <div>
+                <h3 style="color:#b91c1c;">Live SOS Distress Beacon Alerts (Emergency Rescue Dispatch)</h3>
+                <p class="card-desc" style="margin:0;">Real-time GPS distress signals transmitted by stranded travelers and field crews requiring rapid evacuation.</p>
+              </div>
+              <span class="badge-status-red" id="ddmaSosBadge">0 Active Distress</span>
+            </div>
+            
+            <div id="ddmaSosAlertBanner" class="sos-alert-banner" style="display:none;">
+              <span id="ddmaSosBannerText">CRITICAL DISTRESS: 2 Active SOS Signals Transmitting GPS Coordinates</span>
+              <span class="badge-tag" style="background:#fff; color:#b91c1c;">SDRF ALERT</span>
+            </div>
+
+            <div id="ddmaSosContainer" class="sos-list-grid mt-2">
+              <!-- Dynamically populated via JS -->
+            </div>
+          </div>
+
+          <!-- Cloudburst Stress-Testing Simulator -->
+          <div class="panel-card mb-4">
+            <div class="panel-header">
+              <h3 data-i18n="sim_title">Monsoon Cloudburst & Deluge Stress Simulator</h3>
+              <span class="badge-status-orange">STRESS SIMULATOR</span>
+            </div>
+            <p class="card-desc" data-i18n="sim_desc">Simulate extreme localized precipitation surge (+25mm to +200mm in 24h) to analyze cascading highway failures, threshold breaches, and village evacuation triggers.</p>
+            
+            <div class="simulator-slider-box">
+              <div class="sim-labels-row">
+                <span class="sim-current-val">Simulated Surge: <strong id="simRainVal">80</strong> mm / 24h</span>
+                <span class="sim-impact-tag" id="simImpactTag">High Danger Cloudburst</span>
+              </div>
+              <input type="range" id="simRainSlider" min="0" max="200" step="10" value="80" class="slider-styled sim-slider">
+              <div class="sim-scale-ticks">
+                <span>0mm (Normal)</span>
+                <span>50mm (Heavy)</span>
+                <span>100mm (Very Heavy)</span>
+                <span>150mm (Deluge)</span>
+                <span>200mm (Extreme Cloudburst)</span>
+              </div>
+            </div>
+
+            <div id="simResultsContainer" class="sim-results-grid mt-3">
+              <!-- Populated via JS -->
+            </div>
+          </div>
+
+          <!-- Incident Triage & Emergency Broadcast Row -->
+          <div class="grid-2col">
+            <!-- Incident Triage Queue -->
+            <div class="panel-card">
+              <div class="panel-header">
+                <h3 data-i18n="triage_title">Field Incident Triage</h3>
+                <span class="badge-tag" id="triageCount">2 Active</span>
+              </div>
+              <div class="triage-list" id="triageListContainer">
+                <!-- Dynamically populated -->
+              </div>
+            </div>
+
+            <!-- Multi-Channel Emergency Warning Broadcast -->
+            <div class="panel-card">
+              <div class="panel-header">
+                <h3 data-i18n="broadcast_title">Multi-Channel Disaster Broadcast</h3>
+                <span class="badge-tag">Cell Broadcast / SMS</span>
+              </div>
+              <form id="broadcastForm" class="broadcast-form">
+                <div class="form-group">
+                  <label data-i18n="lbl_b_state">Target State / District:</label>
+                  <select id="broadState" class="form-input">
+                    <option value="Sikkim">Sikkim (All Districts)</option>
+                    <option value="Meghalaya">Meghalaya (East Jaintia & Khasi Hills)</option>
+                    <option value="Assam">Assam (Dima Hasao & Barak Valley)</option>
+                    <option value="Nagaland">Nagaland (Kohima & Dimapur)</option>
+                    <option value="Arunachal Pradesh">Arunachal Pradesh (West Kameng & Tawang)</option>
+                  </select>
+                </div>
+
+                <div class="form-group">
+                  <label data-i18n="lbl_b_severity">Warning Severity Level:</label>
+                  <select id="broadSeverity" class="form-input">
+                    <option value="RED">RED - Imminent Threat / Immediate Evacuation</option>
+                    <option value="ORANGE">ORANGE - High Hazard / Travel Prohibited</option>
+                    <option value="YELLOW">YELLOW - Watch & Prepare</option>
+                  </select>
+                </div>
+
+                <div class="form-group">
+                  <label data-i18n="lbl_b_msg">Broadcast Warning Advisory:</label>
+                  <textarea id="broadMsg" class="form-textarea" rows="3">EMERGENCY LANDSLIDE ADVISORY: Severe slope failure risk on NH-10. All traffic suspended. Move to nearest designated shelter immediately.</textarea>
+                </div>
+
+                <div class="channel-checkboxes">
+                  <label><input type="checkbox" checked> Cell Broadcast SMS</label>
+                  <label><input type="checkbox" checked> WhatsApp Emergency</label>
+                  <label><input type="checkbox" checked> Local Tower Sirens</label>
+                </div>
+
+                <button type="submit" class="btn-danger w-100 mt-2">
+                  <span data-i18n="btn_dispatch_broadcast">Dispatch Warning Broadcast</span>
+                </button>
+              </form>
+            </div>
+          </div>
+
+          <!-- Uploaded Evidence & Damage Photo Gallery -->
+          <div class="panel-card mt-4" id="ddmaPhotoGallerySection">
+            <div class="panel-header">
+              <div>
+                <h3>Field Evidence & Uploaded Damage Photo Gallery</h3>
+                <p class="card-desc" style="margin:0;">All ground fissure images, tension scarp photographs, and damage captures uploaded by citizens and officers.</p>
+              </div>
+              <span class="badge-tag" id="ddmaPhotoCount">0 Photos</span>
+            </div>
+            
+            <div id="ddmaPhotoContainer" class="ddma-photo-gallery-grid mt-3">
+              <!-- Dynamically populated via JS -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TAB 5: EMERGENCY SOS & SHELTERS -->
+    <section id="tab-sos" class="tab-panel">
+      <div class="panel-container max-w-800">
+        <div class="section-title-row text-center">
+          <div>
+            <h2 data-i18n="tab5_title">1-Tap SOS Beacon & Evacuation Route Finder</h2>
+            <p class="subtitle" data-i18n="tab5_sub">Emergency distress beacon, offline SMS generator with GPS coordinates, and route pathfinder.</p>
+          </div>
+        </div>
+
+        <!-- 1-Tap SOS Central Button -->
+        <div class="sos-central-box">
+          <button id="btnSosMain" class="btn-sos-pulse">
+            <span class="sos-pulse-ring"></span>
+            <span class="sos-text">SOS</span>
+            <span class="sos-sub" data-i18n="sos_touch_text">TAP TO ACTIVATE DISTRESS</span>
+          </button>
+          <div id="sosStatusMsg" class="sos-status-line">Standby: Tap above in life-threatening landslide emergency</div>
+        </div>
+
+        <!-- Evacuation Route Planner Card -->
+        <div class="panel-card mt-4">
+          <div class="panel-header">
+            <h3 data-i18n="evac_route_title">Safe Evacuation Route Pathfinder</h3>
+            <span class="badge-status-green">AVOIDS RED ZONES</span>
+          </div>
+          <p class="card-desc" data-i18n="evac_desc">Calculates safest road route to the nearest relief shelter avoiding blocked highways.</p>
+          
+          <div class="form-row">
+            <div class="form-group">
+              <label>Your Current Location:</label>
+              <div class="coord-badge" id="currentCoordDisplay">Lat: 27.0521, Lng: 88.4820 (Sikkim NH-10)</div>
+            </div>
+            <div class="form-group auto-btn-group">
+              <label>&nbsp;</label>
+              <button id="btnCalculateEvac" class="btn-primary w-100"><span data-i18n="btn_calc_evac">Find Safe Route</span></button>
+            </div>
+          </div>
+
+          <div id="evacRouteResultBox" class="evac-route-box mt-3" style="display:none;">
+            <!-- Rendered via JS -->
+          </div>
+        </div>
+
+        <!-- Comprehensive Critical Landslide Survival Guide & Safety Instructions -->
+        <div class="panel-card mt-4" id="survivalGuideSection">
+          <div class="panel-header">
+            <h3 data-i18n="guide_main_title">Critical Situation Survival Guide & Safety Instructions</h3>
+            <span class="badge-status-red" data-i18n="guide_tag">LIFE-SAVING PROTOCOLS</span>
+          </div>
+          <p class="card-desc" data-i18n="guide_desc">Authoritative emergency drills and survival techniques for Himalayan/Northeastern landslides and cloudbursts.</p>
+
+          <!-- Guide Sub-Tabs -->
+          <div class="survival-tabs-nav">
+            <button class="btn-survival-tab active" data-subtab="surv-during">During a Slide (Immediate Action)</button>
+            <button class="btn-survival-tab" data-subtab="surv-before">Early Signs & Preparation</button>
+            <button class="btn-survival-tab" data-subtab="surv-after">After the Slide</button>
+            <button class="btn-survival-tab" data-subtab="surv-gobag">Emergency Go-Bag Drill</button>
+          </div>
+
+          <!-- Panel 1: DURING -->
+          <div id="surv-during" class="survival-panel active">
+            <div class="survival-callout-red">
+              <strong>GOLDEN RULE:</strong> If you hear a loud rumbling sound like a freight train or see cracking slopes, act instantly without hesitation!
+            </div>
+            <div class="survival-card-grid">
+              <div class="survival-action-card card-during">
+                <div class="survival-card-title">If You Are Indoors</div>
+                <ul class="survival-step-list">
+                  <li class="survival-step-item"><span><strong>Move to Upper Floor:</strong> Escape ground-floor rooms vulnerable to mud/debris impact.</span></li>
+                  <li class="survival-step-item"><span><strong>Take Sturdy Cover:</strong> Get under a heavy wooden table, bed, or interior door frame.</span></li>
+                  <li class="survival-step-item"><span><strong>Fetal Tuck Position:</strong> Curl into a tight ball, hands over head to protect skull & neck.</span></li>
+                  <li class="survival-step-item"><span><strong>Stay Away from Windows:</strong> Downslope glass windows and exterior walls shatter first.</span></li>
+                </ul>
+              </div>
+
+              <div class="survival-action-card card-during">
+                <div class="survival-card-title">If You Are Outdoors</div>
+                <ul class="survival-step-list">
+                  <li class="survival-step-item"><span><strong>Run Perpendicular:</strong> Sprint sideways across the slope, NEVER straight downhill.</span></li>
+                  <li class="survival-step-item"><span><strong>Seek High Solid Ground:</strong> Move away from stream channels, ravines, and gullies.</span></li>
+                  <li class="survival-step-item"><span><strong>Avoid Weak Trees & Poles:</strong> Retaining walls and shallow trees collapse easily.</span></li>
+                  <li class="survival-step-item"><span><strong>Protect Your Head:</strong> If debris traps you, roll into a tight ball and cover head.</span></li>
+                </ul>
+              </div>
+
+              <div class="survival-action-card card-during">
+                <div class="survival-card-title">If You Are in a Vehicle</div>
+                <ul class="survival-step-list">
+                  <li class="survival-step-item"><span><strong>Watch Road Shoulders:</strong> Stop before sunken pavement or active rockfall zones.</span></li>
+                  <li class="survival-step-item"><span><strong>Abandon Stalled Vehicles:</strong> If highway shoulder collapses, get out and head uphill.</span></li>
+                  <li class="survival-step-item"><span><strong>Never Cross Debris Flows:</strong> Fast-moving mud/boulders easily overturn SUVs & buses.</span></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <!-- Panel 2: BEFORE -->
+          <div id="surv-before" class="survival-panel">
+            <div class="survival-callout-blue">
+              <strong>LANDSLIDE FOREWARNING SIGNS:</strong> Nature always gives visual and acoustic cues before major slope collapse.
+            </div>
+            <div class="survival-card-grid">
+              <div class="survival-action-card card-before">
+                <div class="survival-card-title">Visual Ground Warnings</div>
+                <ul class="survival-step-list">
+                  <li class="survival-step-item"><span>Tension cracks in soil, driveways, retaining walls, or house floors.</span></li>
+                  <li class="survival-step-item"><span>Telephone poles, fences, or tall pine trees tilting or leaning downslope.</span></li>
+                  <li class="survival-step-item"><span>Doors and window frames suddenly jamming or sticking due to foundation shift.</span></li>
+                  <li class="survival-step-item"><span>New muddy springs or water seepage emerging from the toe of the slope.</span></li>
+                </ul>
+              </div>
+
+              <div class="survival-action-card card-before">
+                <div class="survival-card-title">Family Disaster Action Plan</div>
+                <ul class="survival-step-list">
+                  <li class="survival-step-item"><span>Identify 2 safe uphill evacuation routes to the nearest community shelter.</span></li>
+                  <li class="survival-step-item"><span>Save local DDMA/SDRF emergency numbers in speed dial and on paper.</span></li>
+                  <li class="survival-step-item"><span>Monitor the live early warning radar on this platform during heavy monsoon deluges.</span></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <!-- Panel 3: AFTER -->
+          <div id="surv-after" class="survival-panel">
+            <div class="survival-card-grid">
+              <div class="survival-action-card card-after">
+                <div class="survival-card-title">Post-Slide Safety & Rescue</div>
+                <ul class="survival-step-list">
+                  <li class="survival-step-item"><span><strong>Stay Away from Slide Scar:</strong> Secondary slides and dammed flash floods occur frequently.</span></li>
+                  <li class="survival-step-item"><span><strong>Assist Injured from Safe Distance:</strong> Direct NDRF/SDRF rescue teams rather than stepping on unstable debris.</span></li>
+                  <li class="survival-step-item"><span><strong>Report Downed Utilities:</strong> Look out for broken electrical lines, gas leaks, and ruptured water pipes.</span></li>
+                  <li class="survival-step-item"><span><strong>Check Platform Triage:</strong> Log your status and location on the Incident Report tab.</span></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <!-- Panel 4: EMERGENCY GO-BAG CHECKLIST -->
+          <div id="surv-gobag" class="survival-panel">
+            <div class="checklist-container">
+              <div class="checklist-progress-box">
+                <div class="checklist-progress-label">
+                  <span>Emergency Go-Bag Readiness:</span>
+                  <span id="gobagPercent">0% Prepared</span>
+                </div>
+                <div class="checklist-progress-track">
+                  <div id="gobagBar" class="checklist-progress-fill"></div>
+                </div>
+              </div>
+
+              <div class="checklist-items-grid">
+                <label class="check-item-label">
+                  <input type="checkbox" class="gobag-check" data-item="torch">
+                  <span>High-power LED Torch + Spare Batteries</span>
+                </label>
+                <label class="check-item-label">
+                  <input type="checkbox" class="gobag-check" data-item="docs">
+                  <span>Waterproof Pouch (Aadhaar/Passbook/IDs)</span>
+                </label>
+                <label class="check-item-label">
+                  <input type="checkbox" class="gobag-check" data-item="firstaid">
+                  <span>First-Aid Kit & Essential Prescription Meds</span>
+                </label>
+                <label class="check-item-label">
+                  <input type="checkbox" class="gobag-check" data-item="whistle">
+                  <span>Loud Whistle (For calling search & rescue)</span>
+                </label>
+                <label class="check-item-label">
+                  <input type="checkbox" class="gobag-check" data-item="powerbank">
+                  <span>Charged 20,000mAh Power Bank & Cable</span>
+                </label>
+                <label class="check-item-label">
+                  <input type="checkbox" class="gobag-check" data-item="water">
+                  <span>Water Bottle & Purification Tablets</span>
+                </label>
+                <label class="check-item-label">
+                  <input type="checkbox" class="gobag-check" data-item="food">
+                  <span>High-Calorie Dry Rations / Energy Bars</span>
+                </label>
+                <label class="check-item-label">
+                  <input type="checkbox" class="gobag-check" data-item="raincoat">
+                  <span>Heavy Duty Raincoat / Thermal Foil Blanket</span>
+                </label>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 24/7 North Eastern Emergency Directory -->
+        <div class="panel-card mt-3">
+          <div class="panel-header">
+            <h3 data-i18n="hotlines_title">24/7 State Emergency Operation Centers (SEOC)</h3>
+            <span class="badge-tag">Toll Free</span>
+          </div>
+          <div class="hotline-grid">
+            <div class="hotline-card">
+              <div class="hotline-title">Sikkim SDMA</div>
+              <div class="hotline-num"><a href="tel:1070">1070</a> / <a href="tel:03592202394">03592-202394</a></div>
+            </div>
+            <div class="hotline-card">
+              <div class="hotline-title">Meghalaya SDMA</div>
+              <div class="hotline-num"><a href="tel:1070">1070</a> / <a href="tel:03642502111">0364-2502111</a></div>
+            </div>
+            <div class="hotline-card">
+              <div class="hotline-title">Assam ASDMA</div>
+              <div class="hotline-num"><a href="tel:1070">1070</a> / <a href="tel:03612237221">0361-2237221</a></div>
+            </div>
+            <div class="hotline-card">
+              <div class="hotline-title">Nagaland NSDMA</div>
+              <div class="hotline-num"><a href="tel:1070">1070</a> / <a href="tel:03702290055">0370-2290055</a></div>
+            </div>
+            <div class="hotline-card">
+              <div class="hotline-title">NDRF Eastern Command</div>
+              <div class="hotline-num"><a href="tel:112">112</a> / <a href="tel:01124363260">011-24363260</a></div>
+            </div>
+            <div class="hotline-card">
+              <div class="hotline-title">BRO Project Swastik / Sewak</div>
+              <div class="hotline-num"><a href="tel:1033">1033</a> (Highway Helpline)</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Bottom Navigation Bar (Mobile Friendly) -->
+  <nav class="bottom-nav">
+    <button class="nav-tab-btn active" data-tab="tab-map">
+      <span class="nav-label" data-i18n="nav_map">GIS Map</span>
+    </button>
+    <button class="nav-tab-btn" data-tab="tab-warnings">
+      <span class="nav-label" data-i18n="nav_early_warning">Early Warning</span>
+    </button>
+    <button class="nav-tab-btn" data-tab="tab-report">
+      <span class="nav-label" data-i18n="nav_field_report">Field Report</span>
+    </button>
+    <button class="nav-tab-btn" data-tab="tab-ddma">
+      <span class="nav-label" data-i18n="nav_ddma">DDMA Ops</span>
+    </button>
+    <button class="nav-tab-btn" data-tab="tab-sos">
+      <span class="nav-label" data-i18n="nav_sos">SOS & Safety</span>
+    </button>
+  </nav>
+
+  <!-- Emergency Siren Modal -->
+  <div id="sirenModal" class="modal-overlay" style="display:none;">
+    <div class="modal-card siren-modal-box">
+      <h2 class="text-danger" data-i18n="modal_siren_title">DISASTER WARNING SIREN ACTIVE</h2>
+      <p id="sirenModalDesc" data-i18n="modal_siren_desc">High-decibel emergency synthesizer active. Voice advisory broadcasting in selected regional language.</p>
+      
+      <div class="voice-lang-badge">
+        <span data-i18n="voice_lang_label">Voice Language:</span> <strong id="voiceLangLabel">English</strong>
+      </div>
+
+      <div class="modal-btn-row mt-3">
+        <button id="btnStopSiren" class="btn-danger btn-large w-100" data-i18n="btn_stop_siren">MUTE & STOP SIREN</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Full-Resolution Image Viewer Modal -->
+  <div id="photoViewerModal" class="modal-overlay" style="display:none;">
+    <div class="modal-photo-card">
+      <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom: 0.5rem;">
+        <h3 id="modalPhotoTitle" style="color:var(--brand-navy); font-size:1rem; font-weight:800;">Field Incident Evidence</h3>
+        <button id="btnClosePhotoModal" class="btn-secondary" style="padding:2px 8px; font-size:11px;">Close</button>
+      </div>
+      <div class="modal-photo-img-box">
+        <img id="modalPhotoImg" src="" alt="Full-resolution fissure evidence">
+      </div>
+      <div id="modalPhotoMeta" class="modal-photo-details" style="font-size:0.8rem; color:var(--text-secondary); line-height:1.5;">
+        <!-- Filled dynamically -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Android APK Download & Installation Modal -->
+  <div id="apkDownloadModal" class="modal-overlay" style="display:none;">
+    <div class="modal-card apk-modal-card">
+      <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom: 0.75rem;">
+        <div>
+          <span class="apk-badge-version">OFFICIAL ANDROID APK v2.0.0</span>
+          <h2 style="font-size:1.2rem; font-weight:800; color:var(--brand-navy); margin-top:4px;">PRALAY-RAKSHAK Android App</h2>
+        </div>
+        <button id="btnCloseApkModal" class="btn-secondary" style="padding:2px 8px; font-size:11px;">Close</button>
+      </div>
+
+      <p style="font-size:0.8rem; color:var(--text-secondary); text-align:left; margin-bottom:1rem; line-height:1.4;">
+        Download the standalone Android package (.apk) to monitor live Doppler weather radar, IoT telemetry, geotechnical Factor of Safety, and transmit 1-tap SOS distress beacons with offline mountain support.
+      </p>
+
+      <div class="apk-info-grid mb-3">
+        <div class="apk-info-item">
+          <span class="apk-info-label">Package ID:</span>
+          <span class="apk-info-val">in.gov.ndma.pralayrakshak.ner</span>
+        </div>
+        <div class="apk-info-item">
+          <span class="apk-info-label">File Size:</span>
+          <span class="apk-info-val">61.7 KB</span>
+        </div>
+        <div class="apk-info-item">
+          <span class="apk-info-label">Compatibility:</span>
+          <span class="apk-info-val">Android 7.0 to 15</span>
+        </div>
+        <div class="apk-info-item">
+          <span class="apk-info-label">Target Region:</span>
+          <span class="apk-info-val">NER (8 States)</span>
+        </div>
+      </div>
+
+      <div style="display:flex; flex-direction:column; gap:0.6rem;">
+        <a href="/api/download/apk" class="btn-primary btn-large w-100" download="PRALAY-RAKSHAK-Landslide-NER-v2.0.0.apk" style="text-decoration:none; text-align:center; display:block;">
+          <span>Download Android APK Package</span>
+        </a>
+
+        <button id="btnPwaInstallModal" class="btn-secondary w-100" style="display:none; padding:0.6rem;">
+          <span>Install App Directly (PWA Native)</span>
+        </button>
+      </div>
+
+      <div class="apk-sideload-steps mt-3" style="text-align:left;">
+        <div style="font-size:0.75rem; font-weight:700; color:var(--brand-navy); margin-bottom:0.35rem;">Installation Instructions:</div>
+        <ol style="font-size:0.75rem; color:var(--text-secondary); padding-left:1.2rem; line-height:1.5;">
+          <li>Tap <strong>Download Android APK Package</strong> above to download the file.</li>
+          <li>Open the downloaded <code>PRALAY-RAKSHAK-Landslide-NER-v2.0.0.apk</code> from your notifications.</li>
+          <li>If prompted, enable <em>"Allow from this source"</em> in Android Security settings.</li>
+          <li>Tap <strong>Install</strong> to install the application.</li>
+        </ol>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Notification Container -->
+  <div id="toastContainer" class="toast-container"></div>
+
+  <!-- External Scripts: Leaflet JS -->
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script>
+  
+  <!-- Static Hosting & API Interceptor Adapter -->
+  <script src="static_adapter.js"></script>
+
+  <!-- Core Application Scripts -->
+  <script src="alerts.js"></script>
+  <script src="map.js"></script>
+  <script src="report.js"></script>
+  <script src="emergency.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

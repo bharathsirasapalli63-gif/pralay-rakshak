@@ -1,0 +1,454 @@
+{
+  "type": "FeatureCollection",
+  "count": 14,
+  "features": [
+    {
+      "type": "Feature",
+      "id": "WX-IMD-GAU",
+      "properties": {
+        "name": "Guwahati Doppler Weather Radar & Regional Met Centre",
+        "state": "Assam",
+        "district": "Kamrup Metropolitan",
+        "elevation_m": 55,
+        "station_type": "DOPPLER_RADAR_AWS",
+        "alert_icon": "THUNDERSTORM",
+        "warning_level": "YELLOW",
+        "temp_c": 27.4,
+        "humidity_pct": 89,
+        "rainfall_rate_mm_hr": 14.7,
+        "rainfall_24h_mm": 118.0,
+        "wind_speed_kmh": 26,
+        "wind_direction": "SSW",
+        "pressure_hpa": 1004.2,
+        "condition": "Heavy Convective Monsoon Showers",
+        "radar_reflectivity_dbz": 48.5,
+        "dew_point_c": 25.4,
+        "status": "ACTIVE_MONSOON_SURGE",
+        "last_updated": 1788506996
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          91.7362,
+          26.1445
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "WX-IMD-SHR",
+      "properties": {
+        "name": "Cherrapunji / Sohra Heavy Precipitation Station",
+        "state": "Meghalaya",
+        "district": "East Khasi Hills",
+        "elevation_m": 1313,
+        "station_type": "HIGH_PRECIP_RADAR_AWS",
+        "alert_icon": "CLOUDBURST",
+        "warning_level": "RED",
+        "temp_c": 21.4,
+        "humidity_pct": 98,
+        "rainfall_rate_mm_hr": 34.5,
+        "rainfall_24h_mm": 276.0,
+        "wind_speed_kmh": 38,
+        "wind_direction": "S",
+        "pressure_hpa": 868.5,
+        "condition": "Severe Monsoon Cloudburst Deluge",
+        "radar_reflectivity_dbz": 54.0,
+        "dew_point_c": 21.0,
+        "status": "CLOUDBURST_DELUGE",
+        "last_updated": 1788506996
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          91.7323,
+          25.2702
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "WX-IMD-SHL",
+      "properties": {
+        "name": "Shillong Peak AWS & Upper Air Observatory",
+        "state": "Meghalaya",
+        "district": "East Khasi Hills",
+        "elevation_m": 1961,
+        "station_type": "AWS_METEOROLOGICAL",
+        "alert_icon": "HEAVY_RAIN",
+        "warning_level": "ORANGE",
+        "temp_c": 19.3,
+        "humidity_pct": 94,
+        "rainfall_rate_mm_hr": 18.5,
+        "rainfall_24h_mm": 142.0,
+        "wind_speed_kmh": 24,
+        "wind_direction": "SSE",
+        "pressure_hpa": 804.0,
+        "condition": "Heavy Continuous Rain & Fog",
+        "radar_reflectivity_dbz": 46.0,
+        "dew_point_c": 18.2,
+        "status": "HEAVY_RAIN",
+        "last_updated": 1788506996
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          91.8933,
+          25.5788
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "WX-IMD-GTK",
+      "properties": {
+        "name": "Gangtok IMD Regional Meteorological Centre",
+        "state": "Sikkim",
+        "district": "East Sikkim",
+        "elevation_m": 1650,
+        "station_type": "DOPPLER_RADAR_AWS",
+        "alert_icon": "LANDSLIDE",
+        "warning_level": "RED",
+        "temp_c": 17.6,
+        "humidity_pct": 96,
+        "rainfall_rate_mm_hr": 25.2,
+        "rainfall_24h_mm": 188.0,
+        "wind_speed_kmh": 32,
+        "wind_direction": "SE",
+        "pressure_hpa": 834.0,
+        "condition": "Torrential Downpour & Slope Collapse Hazard",
+        "radar_reflectivity_dbz": 51.5,
+        "dew_point_c": 16.8,
+        "status": "HIGH_ALERT",
+        "last_updated": 1788506996
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          88.6065,
+          27.3389
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "WX-IMD-MGN",
+      "properties": {
+        "name": "Mangan Teesta Basin Hydro-Met AWS",
+        "state": "Sikkim",
+        "district": "North Sikkim",
+        "elevation_m": 956,
+        "station_type": "HYDRO_MET_AWS",
+        "alert_icon": "CLOUDBURST",
+        "warning_level": "RED",
+        "temp_c": 16.0,
+        "humidity_pct": 97,
+        "rainfall_rate_mm_hr": 28.6,
+        "rainfall_24h_mm": 215.0,
+        "wind_speed_kmh": 29,
+        "wind_direction": "S",
+        "pressure_hpa": 905.0,
+        "condition": "Intense Rain Squall & Flash Flood Risk",
+        "radar_reflectivity_dbz": 52.8,
+        "dew_point_c": 15.5,
+        "status": "CLOUDBURST_RISK",
+        "last_updated": 1788506996
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          88.53,
+          27.505
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "WX-IMD-PSG",
+      "properties": {
+        "name": "Pasighat Doppler Weather Radar Station",
+        "state": "Arunachal Pradesh",
+        "district": "East Siang",
+        "elevation_m": 153,
+        "station_type": "DOPPLER_RADAR_AWS",
+        "alert_icon": "THUNDERSTORM",
+        "warning_level": "ORANGE",
+        "temp_c": 26.2,
+        "humidity_pct": 93,
+        "rainfall_rate_mm_hr": 21.3,
+        "rainfall_24h_mm": 165.0,
+        "wind_speed_kmh": 22,
+        "wind_direction": "ENE",
+        "pressure_hpa": 992.0,
+        "condition": "Severe Monsoon Thunderstorm",
+        "radar_reflectivity_dbz": 49.0,
+        "dew_point_c": 24.9,
+        "status": "HEAVY_RAIN",
+        "last_updated": 1788506996
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          95.326,
+          28.066
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "WX-IMD-ITN",
+      "properties": {
+        "name": "Itanagar Foothills Meteorological Station",
+        "state": "Arunachal Pradesh",
+        "district": "Papum Pare",
+        "elevation_m": 320,
+        "station_type": "AWS_METEOROLOGICAL",
+        "alert_icon": "HEAVY_RAIN",
+        "warning_level": "YELLOW",
+        "temp_c": 25.0,
+        "humidity_pct": 90,
+        "rainfall_rate_mm_hr": 16.2,
+        "rainfall_24h_mm": 132.0,
+        "wind_speed_kmh": 18,
+        "wind_direction": "NE",
+        "pressure_hpa": 978.0,
+        "condition": "Continuous Orographic Rain",
+        "radar_reflectivity_dbz": 47.0,
+        "dew_point_c": 23.2,
+        "status": "ACTIVE_MONSOON",
+        "last_updated": 1788506996
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          93.6053,
+          27.0844
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "WX-IMD-TWG",
+      "properties": {
+        "name": "Tawang Alpine High-Altitude Observatory",
+        "state": "Arunachal Pradesh",
+        "district": "Tawang",
+        "elevation_m": 3048,
+        "station_type": "ALPINE_MET_AWS",
+        "alert_icon": "SQUALL",
+        "warning_level": "YELLOW",
+        "temp_c": 11.6,
+        "humidity_pct": 92,
+        "rainfall_rate_mm_hr": 12.5,
+        "rainfall_24h_mm": 92.0,
+        "wind_speed_kmh": 35,
+        "wind_direction": "WNW",
+        "pressure_hpa": 710.0,
+        "condition": "Cold Rain, Freezing Fog & Gale Winds",
+        "radar_reflectivity_dbz": 43.5,
+        "dew_point_c": 10.1,
+        "status": "ALPINE_WATCH",
+        "last_updated": 1788506996
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          91.8594,
+          27.5861
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "WX-IMD-KOH",
+      "properties": {
+        "name": "Kohima Ridge Meteorological AWS",
+        "state": "Nagaland",
+        "district": "Kohima",
+        "elevation_m": 1444,
+        "station_type": "AWS_METEOROLOGICAL",
+        "alert_icon": "LANDSLIDE",
+        "warning_level": "ORANGE",
+        "temp_c": 20.5,
+        "humidity_pct": 94,
+        "rainfall_rate_mm_hr": 17.2,
+        "rainfall_24h_mm": 135.0,
+        "wind_speed_kmh": 20,
+        "wind_direction": "S",
+        "pressure_hpa": 855.0,
+        "condition": "Heavy Hill Slopes Rain & Slope Slip",
+        "radar_reflectivity_dbz": 47.5,
+        "dew_point_c": 19.4,
+        "status": "HEAVY_RAIN",
+        "last_updated": 1788506996
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          94.1086,
+          25.6751
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "WX-IMD-IMP",
+      "properties": {
+        "name": "Imphal Valley Meteorological Centre",
+        "state": "Manipur",
+        "district": "Imphal West",
+        "elevation_m": 786,
+        "station_type": "AWS_METEOROLOGICAL",
+        "alert_icon": "HEAVY_RAIN",
+        "warning_level": "GREEN",
+        "temp_c": 24.7,
+        "humidity_pct": 87,
+        "rainfall_rate_mm_hr": 9.8,
+        "rainfall_24h_mm": 78.0,
+        "wind_speed_kmh": 15,
+        "wind_direction": "SW",
+        "pressure_hpa": 924.0,
+        "condition": "Moderate Monsoon Rain",
+        "radar_reflectivity_dbz": 41.0,
+        "dew_point_c": 22.1,
+        "status": "MONSOON_WATCH",
+        "last_updated": 1788506996
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          93.9368,
+          24.817
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "WX-IMD-AIZ",
+      "properties": {
+        "name": "Aizawl Hilltop Meteorological Observatory",
+        "state": "Mizoram",
+        "district": "Aizawl",
+        "elevation_m": 1132,
+        "station_type": "AWS_METEOROLOGICAL",
+        "alert_icon": "HEAVY_RAIN",
+        "warning_level": "ORANGE",
+        "temp_c": 22.4,
+        "humidity_pct": 95,
+        "rainfall_rate_mm_hr": 22.8,
+        "rainfall_24h_mm": 182.0,
+        "wind_speed_kmh": 25,
+        "wind_direction": "SSW",
+        "pressure_hpa": 888.0,
+        "condition": "Severe Saturated Slope Downpour",
+        "radar_reflectivity_dbz": 50.2,
+        "dew_point_c": 21.5,
+        "status": "HIGH_ALERT",
+        "last_updated": 1788506996
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          92.7176,
+          23.7271
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "WX-IMD-AGT",
+      "properties": {
+        "name": "Agartala Airport Doppler Weather Radar",
+        "state": "Tripura",
+        "district": "West Tripura",
+        "elevation_m": 15,
+        "station_type": "DOPPLER_RADAR_AWS",
+        "alert_icon": "THUNDERSTORM",
+        "warning_level": "GREEN",
+        "temp_c": 29.3,
+        "humidity_pct": 85,
+        "rainfall_rate_mm_hr": 8.7,
+        "rainfall_24h_mm": 68.0,
+        "wind_speed_kmh": 19,
+        "wind_direction": "S",
+        "pressure_hpa": 1006.0,
+        "condition": "Monsoon Squalls & Passing Showers",
+        "radar_reflectivity_dbz": 39.5,
+        "dew_point_c": 26.2,
+        "status": "MODERATE_RAIN",
+        "last_updated": 1788506996
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          91.2868,
+          23.8315
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "WX-IMD-HFL",
+      "properties": {
+        "name": "Haflong Dima Hasao AWS",
+        "state": "Assam",
+        "district": "Dima Hasao",
+        "elevation_m": 680,
+        "station_type": "AWS_METEOROLOGICAL",
+        "alert_icon": "LANDSLIDE",
+        "warning_level": "RED",
+        "temp_c": 23.4,
+        "humidity_pct": 96,
+        "rainfall_rate_mm_hr": 27.1,
+        "rainfall_24h_mm": 204.0,
+        "wind_speed_kmh": 28,
+        "wind_direction": "S",
+        "pressure_hpa": 935.0,
+        "condition": "Severe Convective Downpour",
+        "radar_reflectivity_dbz": 53.0,
+        "dew_point_c": 22.8,
+        "status": "CLOUDBURST_RISK",
+        "last_updated": 1788506996
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          93.032,
+          25.184
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "WX-IMD-SIL",
+      "properties": {
+        "name": "Silchar Barak Valley Meteorological Station",
+        "state": "Assam",
+        "district": "Cachar",
+        "elevation_m": 25,
+        "station_type": "AWS_METEOROLOGICAL",
+        "alert_icon": "HEAVY_RAIN",
+        "warning_level": "YELLOW",
+        "temp_c": 28.0,
+        "humidity_pct": 91,
+        "rainfall_rate_mm_hr": 15.2,
+        "rainfall_24h_mm": 115.0,
+        "wind_speed_kmh": 20,
+        "wind_direction": "SSW",
+        "pressure_hpa": 1005.0,
+        "condition": "Heavy Rain & Saturated Alluvial Plains",
+        "radar_reflectivity_dbz": 46.5,
+        "dew_point_c": 26.4,
+        "status": "HEAVY_RAIN",
+        "last_updated": 1788506996
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          92.7789,
+          24.8333
+        ]
+      }
+    }
+  ]
+}
